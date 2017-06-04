@@ -25,8 +25,8 @@ def setup
   @song5 = Songs.new("Stan", "Eminem")
   @songs_a = [@song0, @song1, @song2]
   @songs_b = [@song3, @song4, @song5]
-  @room1 = Rooms.new("Rock Room", @guests_a, @songs_a)
-  @room2 = Rooms.new("Alternative Room", @guests_b, @songs_b)
+  @room1 = Rooms.new("Rock Room", @guests_a, @songs_a, 5)
+  @room2 = Rooms.new("Alternative Room", @guests_b, @songs_b, 5)
 end
 
 def test_room_has_name
@@ -42,6 +42,10 @@ def test_room_has_songs
 end
 
 
+def test_room_has_entry_fee
+  assert_equal(5, @room1.entry_fee)
+end
+
 
 def test_total_guests_in_room
  assert_equal(3, @room1.total_guests)
@@ -52,6 +56,16 @@ def test_check_in_to_room
  @room1.check_in(@guest_extra)
  assert_equal(4, @room1.total_guests)
 end
+
+
+def test_check_out_from_room
+ @room1.check_in(@guest_extra)
+ @room1.check_out(@guest0)
+ assert_equal(3, @room1.total_guests)
+end
+# Can I check out and get 3, without having to call the check in method again? Why doesn't the number of elements in the array stay 4, after the check in?
+
+
 
 
 
