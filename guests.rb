@@ -9,5 +9,6 @@ class Guests
     @favourite_song = favourite_song
   end
 
+  
 
 end

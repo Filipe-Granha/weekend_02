@@ -31,6 +31,34 @@
  end
 
 
+# def guest_money(guest)
+#  if guest.money >= @entry_fee
+#    @guests.push guest
+#  else
+#   return false
+# end
+# end
+
+
+
+def add_song_to_room(song)
+ @songs << song
+return @songs.length
+end
+
+
+def check_favourite_song(favourite_song)
+ for song in @songs
+  if song == favourite_song
+    return "Whoo!"
+  else return false
+  end
+ end
+end
+
+
+
+
 
 
 end
