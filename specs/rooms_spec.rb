@@ -7,7 +7,7 @@ require_relative("../songs")
 class TestRooms < Minitest::Test
 
 def setup
-  @guest0 = Guests.new("John", 10, @song0)
+  @guest0 = Guests.new("John", 4, @song0)
   @guest1 = Guests.new("Jude", 11, @song1)
   @guest2 = Guests.new("Julian", 12, @song2)
   @guest3 = Guests.new("Jordan", 13, @song3)
@@ -66,7 +66,9 @@ end
 # Can I check out and get 3, without having to call the check in method again? Why doesn't the number of elements in the array stay 4, after the check in?
 
 
-
+def not_enough_free_space
+ assert_equal(false, @room2.not_enough_free_space(3, @guest_extra2))
+end
 
 
 

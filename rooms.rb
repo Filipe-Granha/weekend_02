@@ -22,5 +22,15 @@
   @guests.delete(guest)
  end
 
+ def not_enough_free_space(available_places, guest)
+  if @guests.length < available_places
+    @guests.push guest
+  else
+    return false
+  end 
+ end
+
+
+
 
 end
